@@ -1,12 +1,14 @@
-import { Formik, Field } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
   ErrorMessageStyled,
   FieldWrapper,
   FormStyled,
-  Label,
+  ButtonSubmit,
+  FormButtonWrapper,
+  InputFieldStyled,
+  LabelStyled,
 } from './ContactForm.styled';
-import { ButtonSubmit } from 'components/Section/Section.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/api';
 import { selectContacts } from 'redux/selectors';
@@ -62,23 +64,30 @@ export const ContactForm = () => {
       >
         <FormStyled>
           <FieldWrapper>
-            <Label htmlFor="name">Name</Label>
-            <Field id="name" name="name" placeholder="Jane" maxlength="50" />
+            <LabelStyled htmlFor="name">Name</LabelStyled>
+            <InputFieldStyled
+              id="name"
+              name="name"
+              placeholder="Jane"
+              maxLength="50"
+            />
             <ErrorMessageStyled component="div" name="name" />
           </FieldWrapper>
 
           <FieldWrapper>
-            <Label htmlFor="phone">Number</Label>
-            <Field
+            <LabelStyled htmlFor="phone">Number</LabelStyled>
+            <InputFieldStyled
               id="phone"
               name="phone"
               placeholder="123-456-7890"
-              maxlength="12"
+              maxLength="12"
             />
             <ErrorMessageStyled component="div" name="phone" />
           </FieldWrapper>
 
-          <ButtonSubmit type="submit">Submit</ButtonSubmit>
+          <FormButtonWrapper>
+            <ButtonSubmit type="submit">Submit</ButtonSubmit>
+          </FormButtonWrapper>
         </FormStyled>
       </Formik>
     </>

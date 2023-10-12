@@ -1,5 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { ContactListStyled, ListElement } from './ContactList.styled';
+import {
+  ContactListStyled,
+  ErrorParagraph,
+  ListElement,
+  LoadingParagraph,
+} from './ContactList.styled';
 import { selectContacts, selectFilteredContacts } from 'redux/selectors';
 import { useEffect } from 'react';
 import { deleteContact, fetchContacts } from 'redux/api';
@@ -15,8 +20,10 @@ export const ContactList = () => {
 
   return (
     <>
-      {contacts.isLoading && <p>Loading...</p>}
-      {contacts.error && <p>Somethink get wrong try again</p>}
+      {contacts.isLoading && <LoadingParagraph>Loading...</LoadingParagraph>}
+      {contacts.error && (
+        <ErrorParagraph>Something went wrong, please try again</ErrorParagraph>
+      )}
       {contacts.list.length ? (
         filteredContacts.length ? (
           <ContactListStyled>
@@ -36,10 +43,10 @@ export const ContactList = () => {
             ))}
           </ContactListStyled>
         ) : (
-          <p>No contacts with this name</p>
+          <ErrorParagraph>No contacts with this name</ErrorParagraph>
         )
       ) : (
-        <p>No contacts</p>
+        <ErrorParagraph>No contacts</ErrorParagraph>
       )}
     </>
   );
