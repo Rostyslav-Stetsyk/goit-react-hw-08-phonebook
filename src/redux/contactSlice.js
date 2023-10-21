@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
-import { fetchContacts, addContact, deleteContact } from 'redux/api';
+import { fetchContacts, addContact, deleteContact } from 'redux/operations';
 
 const rejected = (state, action) => {
   state.error = action.payload;

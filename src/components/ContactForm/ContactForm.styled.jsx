@@ -33,6 +33,7 @@ import { Form, ErrorMessage, Field } from 'formik';
 // `;
 
 export const FormStyled = styled(Form)`
+  position: relative;
   margin-top: 16px;
 `;
 

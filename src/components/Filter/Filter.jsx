@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { ButtonReload, FilterForm } from './Filter.styled';
 import { setFilter } from 'redux/filterSlice';
 import { AiOutlineReload } from 'react-icons/ai';
-import { fetchContacts } from 'redux/api';
+import { fetchContacts } from 'redux/operations';
 import debounce from 'lodash.debounce';
 
 export const Filter = () => {

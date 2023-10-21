@@ -10,7 +10,7 @@ import {
   LabelStyled,
 } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/api';
+import { addContact } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
 import toast from 'react-hot-toast';
 
