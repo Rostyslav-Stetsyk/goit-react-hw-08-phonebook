@@ -12,7 +12,7 @@ export const Main = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!account.isLogined) navigate('/goit-react-hw-07-phonebook/login');
+    if (!account.isLogined) navigate('/goit-react-hw-08-phonebook/login');
   }, [account, navigate]);
   return (
     <>

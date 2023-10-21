@@ -1,17 +1,5 @@
 import styled from '@emotion/styled';
 
-// export const SectionWrapper = styled.section`
-//   margin-top: 30px;
-//   border: 1px solid lightgrey;
-//   border-radius: 8px;
-//   padding: 20px;
-// `;
-
-// export const SectionTitle = styled.h2`
-//   font-size: 30px;
-//   font-weight: 700;
-// `;
-
 export const SectionWrapper = styled.section`
   margin-top: 30px;
   border: 1px solid #ecf0f1;

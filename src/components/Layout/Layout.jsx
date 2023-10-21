@@ -15,7 +15,7 @@ export const Layout = () => {
       <Header>
         {account.isLogined ? (
           <>
-            <Link to="/goit-react-hw-07-phonebook">Home</Link>
+            <Link to="/goit-react-hw-08-phonebook">Home</Link>
             <User>
               <UserImgFrame>
                 <AiOutlineUser />
@@ -31,8 +31,8 @@ export const Layout = () => {
           </>
         ) : (
           <>
-            <Link to="/goit-react-hw-07-phonebook/login">Login</Link>
-            <Link to="/goit-react-hw-07-phonebook/register">Register</Link>
+            <Link to="/goit-react-hw-08-phonebook/login">Login</Link>
+            <Link to="/goit-react-hw-08-phonebook/register">Register</Link>
           </>
         )}
       </Header>

@@ -10,7 +10,7 @@ export const Register = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (account.isLogined) navigate('/goit-react-hw-07-phonebook');
+    if (account.isLogined) navigate('/goit-react-hw-08-phonebook');
   }, [account, navigate]);
   return (
     <Section title={'Register'}>
