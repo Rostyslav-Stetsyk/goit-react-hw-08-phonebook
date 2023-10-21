@@ -5,18 +5,23 @@ import {
   ListElement,
   LoadingParagraph,
 } from './ContactList.styled';
-import { selectContacts, selectFilteredContacts } from 'redux/selectors';
+import {
+  selectAccount,
+  selectContacts,
+  selectFilteredContacts,
+} from 'redux/selectors';
 import { useEffect } from 'react';
 import { deleteContact, fetchContacts } from 'redux/operations';
 
 export const ContactList = () => {
+  const account = useSelector(selectAccount);
   const contacts = useSelector(selectContacts);
   const filteredContacts = useSelector(selectFilteredContacts);
   const dispach = useDispatch();
 
   useEffect(() => {
-    dispach(fetchContacts());
-  }, [dispach]);
+    if (account.isLogined) dispach(fetchContacts());
+  }, [dispach, account]);
 
   return (
     <>
