@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { loginAccount, registerAccount } from './operations';
+import {
+  loginAccount,
+  logoutAccount,
+  refreshAccount,
+  registerAccount,
+} from './operations';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -21,11 +26,12 @@ const persistConfig = {
 export const accountSlice = createSlice({
   name: 'account',
   initialState: {
-    token: '',
-    user: { name: null },
+    token: null,
+    user: { name: null, email: null },
     isLoading: false,
     error: null,
     isLogined: false,
+    isRefreshing: true,
   },
   extraReducers: builder => {
     builder
@@ -46,7 +52,27 @@ export const accountSlice = createSlice({
         state.error = null;
       })
       .addCase(loginAccount.rejected, rejected)
-      .addCase(loginAccount.pending, loading);
+      .addCase(loginAccount.pending, loading)
+      .addCase(logoutAccount.fulfilled, state => {
+        state.isLogined = false;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(logoutAccount.rejected, rejected)
+      .addCase(logoutAccount.pending, loading)
+      .addCase(refreshAccount.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLogined = true;
+        state.isRefreshing = false;
+        state.error = null;
+      })
+      .addCase(refreshAccount.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshAccount.rejected, (state, action) => {
+        state.isRefreshing = false;
+        state.error = action.payload;
+      });
   },
 });
 

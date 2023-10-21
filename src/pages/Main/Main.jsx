@@ -13,7 +13,7 @@ export const Main = () => {
 
   useEffect(() => {
     if (!account.isLogined) navigate('/goit-react-hw-07-phonebook/login');
-  });
+  }, [account, navigate]);
   return (
     <>
       <Section title={'Phonebook'}>

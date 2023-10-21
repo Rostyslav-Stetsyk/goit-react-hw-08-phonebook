@@ -11,7 +11,7 @@ export const Login = () => {
 
   useEffect(() => {
     if (account.isLogined) navigate('/goit-react-hw-07-phonebook');
-  });
+  }, [account, navigate]);
   return (
     <Section title={'Login'}>
       <LoginForm />

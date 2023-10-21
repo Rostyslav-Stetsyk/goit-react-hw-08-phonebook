@@ -1,12 +1,14 @@
 import { Link, Outlet } from 'react-router-dom';
 import { Footer, Header, User, UserImgFrame, Wrapper } from './Layout.styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectAccount } from 'redux/selectors';
 import { AiOutlineUser } from 'react-icons/ai';
 import { IoExitOutline } from 'react-icons/io5';
+import { logoutAccount } from 'redux/operations';
 
 export const Layout = () => {
   const account = useSelector(selectAccount);
+  const dispatch = useDispatch();
 
   return (
     <Wrapper>
@@ -19,7 +21,10 @@ export const Layout = () => {
                 <AiOutlineUser />
               </UserImgFrame>
               <p>{account.user.name}</p>
-              <button type="button">
+              <button
+                onClick={() => dispatch(logoutAccount(account.token))}
+                type="button"
+              >
                 <IoExitOutline />
               </button>
             </User>

@@ -11,7 +11,7 @@ export const Register = () => {
 
   useEffect(() => {
     if (account.isLogined) navigate('/goit-react-hw-07-phonebook');
-  });
+  }, [account, navigate]);
   return (
     <Section title={'Register'}>
       <RegisterForm />
