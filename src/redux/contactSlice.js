@@ -30,7 +30,7 @@ const contactSlice = createSlice({
       .addCase(addContact.fulfilled, (state, action) => {
         state.list.push(action.payload);
         toast.success(
-          `Contact '${action.payload.name}' with phonenumber '${action.payload.phone}' successfully added`
+          `Contact '${action.payload.name}' with phonenumber '${action.payload.number}' successfully added`
         );
         state.isLoading = false;
         state.error = null;
@@ -40,7 +40,7 @@ const contactSlice = createSlice({
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.list = state.list.filter(el => el.id !== action.payload.id);
         toast.success(
-          `Contact '${action.payload.name}' with phonenumber '${action.payload.phone}' successfully deleted`
+          `Contact '${action.payload.name}' with phonenumber '${action.payload.number}' successfully deleted`
         );
         state.isLoading = false;
         state.error = null;

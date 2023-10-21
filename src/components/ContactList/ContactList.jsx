@@ -27,11 +27,12 @@ export const ContactList = () => {
       {contacts.list.length ? (
         filteredContacts.length ? (
           <ContactListStyled>
-            {filteredContacts.map(({ id, name, phone }) => (
+            {filteredContacts.map(({ id, name, number }) => (
               <ListElement key={id}>
-                <p>
-                  {name}: {phone}
-                </p>
+                <div>
+                  <p>{name}:</p>
+                  <p>{number}</p>
+                </div>
                 <button
                   type="button"
                   id={id}

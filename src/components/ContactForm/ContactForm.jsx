@@ -19,7 +19,7 @@ const contactSchema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
-  phone: Yup.string()
+  number: Yup.string()
     .length(12, `Number must have 12 symbols`)
     .trim()
     .matches(
@@ -40,7 +40,7 @@ export const ContactForm = () => {
           toast.error('This name allready in contact list.');
           return true;
         }
-        if (el.phone === contact.phone) {
+        if (el.number === contact.number) {
           toast.error('This phone allready in contact list.');
           return true;
         }
@@ -57,7 +57,7 @@ export const ContactForm = () => {
       <Formik
         initialValues={{
           name: '',
-          phone: '',
+          number: '',
         }}
         validationSchema={contactSchema}
         onSubmit={onSubmit}
@@ -75,14 +75,14 @@ export const ContactForm = () => {
           </FieldWrapper>
 
           <FieldWrapper>
-            <LabelStyled htmlFor="phone">Number</LabelStyled>
+            <LabelStyled htmlFor="number">Number</LabelStyled>
             <InputFieldStyled
-              id="phone"
-              name="phone"
+              id="number"
+              name="number"
               placeholder="123-456-7890"
               maxLength="12"
             />
-            <ErrorMessageStyled component="div" name="phone" />
+            <ErrorMessageStyled component="div" name="number" />
           </FieldWrapper>
 
           <FormButtonWrapper>

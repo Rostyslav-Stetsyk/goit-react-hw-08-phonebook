@@ -21,23 +21,6 @@ export const ErrorParagraph = styled.p`
   padding: 8px 0;
 `;
 
-// export const ContactListStyled = styled.ul`
-//   display: flex;
-//   flex-direction: column;
-//   margin-top: 21px;
-//   border: 1px solid gray;
-
-//   li:nth-of-type(2n + 1) {
-//     background-color: lightgray;
-//   }
-// `;
-
-// export const ListElement = styled.li`
-//   display: flex;
-//   justify-content: space-between;
-//   padding: 4px;
-// `;
-
 export const ContactListStyled = styled.ul`
   display: flex;
   flex-direction: column;
@@ -80,5 +63,11 @@ export const ListElement = styled.li`
     &:focus {
       background-color: #c0392b;
     }
+  }
+
+  div {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
   }
 `;
